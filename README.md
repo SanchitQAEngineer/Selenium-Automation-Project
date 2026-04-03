@@ -6,7 +6,7 @@
 ![Maven](https://img.shields.io/badge/Maven-Build-blue?style=flat&logo=apachemaven)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-> Automated testing framework for the **SauceDemo** e-commerce website using Selenium WebDriver, Java, and TestNG. Covers login, cart, and checkout functionality with real bug reports and API test coverage.
+> Automated testing framework for the **SauceDemo** e-commerce website using Selenium WebDriver, Java, and TestNG. Covers login, invalid login, logout, cart, and checkout functionality with real bug reports and API test coverage.
 
 ---
 
@@ -25,30 +25,40 @@
 Selenium-Automation-Project/
 │
 ├── src/
-│   └── test/java/
-│       ├── pages/          # Page Object Model classes
-│       ├── tests/          # Test classes
-│       └── utils/          # Base setup & helpers
+│   ├── test/java/
+│   │   ├── LoginTest.java           # Valid login test
+│   │   ├── InvalidLoginTest.java    # Invalid login & error message test
+│   │   └── LogoutTest.java          # Logout functionality test
+│   └── main/
 │
-├── Bug Report.xlsx         # Manual bug report with real defects
-├── SauceDemo.xlsx          # Manual test cases in Excel format
+├── Bug Report.xlsx                  # Manual bug report with real defects
+├── SauceDemo.xlsx                   # Manual test cases in Excel format
 ├── API Testing Project.postman_collection.json  # Postman API tests
-├── Jira_Project            # Jira project reference
-├── pom.xml                 # Maven dependencies
-└── testng.xml              # TestNG test suite configuration
+├── pom.xml                          # Maven dependencies
+└── testng.xml                       # TestNG test suite configuration
 ```
 
 ---
 
-## 🐛 Bugs Found & Automated (Jira — QAP)
+## 🤖 Automated Test Cases
 
-| Jira ID | Bug | Priority | Status |
-|---------|-----|----------|--------|
-| QAP-1 | Login button not responding on valid credentials | 🔴 High | To Do |
-| QAP-2 | Error message not displayed for invalid login | 🔴 High | To Do |
-| QAP-3 | Password field visible instead of masked | 🔴 High | To Do |
-| QAP-4 | Add to Cart button not adding product | 🟡 Medium | To Do |
-| QAP-5 | Cart items removed after page refresh | 🔴 High | To Do |
+| Test File | What It Tests | Related Jira Bug |
+|-----------|--------------|-----------------|
+| `LoginTest.java` | Valid login → should navigate to dashboard | QAP-1 |
+| `InvalidLoginTest.java` | Invalid login → should show error message | QAP-2 |
+| `LogoutTest.java` | Logout → should return to login page | - |
+
+---
+
+## 🐛 Bugs Found (Jira — QAP)
+
+| Jira ID | Bug | Priority |
+|---------|-----|----------|
+| QAP-1 | Login button not responding on valid credentials | 🔴 High |
+| QAP-2 | Error message not displayed for invalid login | 🔴 High |
+| QAP-3 | Password field visible instead of masked | 🔴 High |
+| QAP-4 | Add to Cart button not adding product | 🟡 Medium |
+| QAP-5 | Cart items removed after page refresh | 🔴 High |
 
 ---
 
@@ -56,13 +66,13 @@ Selenium-Automation-Project/
 
 | Technology | Purpose |
 |-----------|---------|
-| Java 17 | Programming language |
-| Selenium WebDriver 4.x | Browser automation |
+| Java | Programming language |
+| Selenium WebDriver | Browser automation |
 | TestNG | Test framework |
 | Maven | Build & dependency management |
 | Postman | API testing |
 | Jira | Bug tracking & project management |
-| Excel (Apache POI) | Test data & bug reports |
+| Excel | Test cases & bug reports |
 
 ---
 
@@ -111,11 +121,11 @@ mvn test -Dsurefire.suiteXmlFiles=testng.xml
 
 ## 👤 Author
 
-**Sanchit Mathur** — QA Engineer  
-📧 sanchitmathur7@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/sanchit-mathur-qa)  
+**Sanchit Mathur** — QA Engineer
+📧 sanchitmathur7@gmail.com
+🔗 [LinkedIn](https://www.linkedin.com/in/sanchit-mathur-qa)
 🐙 [GitHub](https://github.com/SanchitQAEngineer)
 
 ---
 
-## ⭐ If you found this project helpful, please give it a star!
+⭐ If you found this project helpful, please give it a star!
